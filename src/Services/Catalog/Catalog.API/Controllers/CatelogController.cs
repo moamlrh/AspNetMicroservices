@@ -30,7 +30,6 @@ namespace Catalog.API.Controllers
         public async Task<ActionResult<IEnumerable<Product>>> GetProducts()
         {
             var products = await repository.GetProducts();
-            // this is just test
             return Ok(products);
         }
 
