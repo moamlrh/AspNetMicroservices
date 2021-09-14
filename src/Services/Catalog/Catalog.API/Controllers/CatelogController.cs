@@ -25,25 +25,5 @@ namespace Catalog.API.Controllers
             this.logger = logger;
         }
 
-        [HttpGet]
-        [ProducesResponseType(typeof(IEnumerable<Product>), (int)HttpStatusCode.OK)]
-        public async Task<ActionResult<IEnumerable<Product>>> GetProducts()
-        {
-            var products = await repository.GetProducts();
-            return Ok(products);
-        }
-
-        [HttpGet("{id:length(24)}", Name = "GetProductById")]
-        [ProducesResponseType(typeof(Product), (int)HttpStatusCode.OK)]
-        [ProducesResponseType((int)HttpStatusCode.NotFound)]
-        public async Task<ActionResult<Product>> GetProductById(string id)
-        {
-            var product = await repository.GetProductById(id);
-            if (product == null) { 
-                logger.LogError($"Product with {id}, is not found !");
-                return NotFound();
             }
-            return Ok(product);
-        }
-    }
 }
