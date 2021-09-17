@@ -16,6 +16,12 @@ namespace Basket.API.Repositories
         {
             this.redisCashe = redisCashe;
         }
+
+        public async Task AddBasket(ShoppingCart cart)
+        {
+            await redisCashe.SetStringAsync(cart.UserName, JsonConvert.SerializeObject(cart));
+        }
+
         public async Task DeleteBasket(string userName)
         {
             await redisCashe.RemoveAsync(userName);

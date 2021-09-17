@@ -31,5 +31,11 @@ namespace Basket.API.Controllers
             await repository.DeleteBasket(userName);
             return Ok();
         }
+
+        public async Task<IActionResult> AddBasket(ShoppingCart cart)
+        {
+            await repository.AddBasket(cart);
+            return Ok("Added new basket done! ");
+        }
     }
 }
