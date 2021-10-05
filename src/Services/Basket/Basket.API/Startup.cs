@@ -18,6 +18,7 @@ namespace Basket.API
     {
         public Startup(IConfiguration configuration)
         {
+            // back to learning again after a break for a while !
             Configuration = configuration;
         }
 
